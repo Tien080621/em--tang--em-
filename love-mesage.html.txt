@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tớ có điều muốn nói với chị...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe0e9, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff7e67;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff4f3c;
+    }
+    img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bg-music" autoplay loop muted>
+  <source src="https://cdn.glitch.global/8a2f39fe-1a2c-48ae-9cb2-fcddeca66c2f/NgoiBenEm-LouHoang.mp3" type="audio/mpeg">
+  Trình duyệt không hỗ trợ audio.
+</audio>
+
+<div class="card">
+  <img id="image" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Ảnh tỏ tình">
+  <h2 id="text">Hí hí, em có điều muốn nói với chị... 😳</h2>
+  <button onclick="nextStep()">Tiếp theo</button>
+</div>
+
+<script>
+  const steps = [
+    {
+      text: "Chị ơi... em biết mình mới quen nhau chưa lâu...",
+      img: "step1.jpg"
+    },
+    {
+      text: "Nhưng... mỗi lần nói chuyện với chị, em thấy vui lắm luôn á 🥹",
+      img: "step2.jpg"
+    },
+    {
+      text: "Chị biết chị dễ thương lắm không...? Nhìn riết em rung động rồi 🥺",
+      img: "step3.jpg"
+    },
+    {
+      text: "Thật ra em còn ngại lắm, không dám nói trực tiếp...",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    },
+    {
+      text: "Mà em không biết sao, chỉ cần thấy tin nhắn của chị là cười như đứa ngốc á 😳",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    },
+    {
+      text: "Trò chuyện với chị làm em vui, nhẹ lòng, dễ thương gì đâu luôn á ☁️",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    },
+    {
+      text: "Em cũng không chắc tương lai sẽ ra sao...",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    },
+    {
+      text: "Nhưng mà... em thích chị rồi 🥺",
+      img: "z6679702140776_3eca6ce542a491ebc7b91e3e4739f0cd.jpg"
+    },
+    {
+      text: "Không biết... chúng mình có thể... tìm hiểu nhau không? 👉👈",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    },
+    {
+      text: "Hết rồi á... hí hí. Chị đừng chọc em ngại nha 🙈",
+      img: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
+    }
+  ];
+
+  let current = 0;
+
+  function nextStep() {
+    const text = document.getElementById("text");
+    const image = document.getElementById("image");
+    const music = document.getElementById("bg-music");
+
+    if (music.muted) music.muted = false;
+
+    if (current < steps.length) {
+      text.innerText = steps[current].text;
+      image.src = steps[current].img;
+      current++;
+    } else {
+      document.querySelector("button").style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
